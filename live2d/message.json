@@ -1,0 +1,18 @@
+{
+    "mouseover": [
+		{
+            "selector": ".main a",
+            "text": ["要看看 <span style=\"color:#0099cc;\">{text}</span> 么？"]
+        },
+        {
+            "selector": "#landlord #live2d",
+            "text": ["干嘛呢你，快把手拿开", "鼠…鼠标放错地方了！"]
+        }
+    ],
+    "click": [
+        {
+            "selector": "#landlord #live2d",
+            "text": ["是…是不小心碰到了吧", "萝莉控是什么呀", "你看到我的小熊了吗", "再摸的话我可要报警了！⌇●﹏●⌇", "110吗，这里有个变态一直在摸我(ó﹏ò｡)"]
+        }
+    ]
+}
