@@ -70,5 +70,6 @@
       {"file": "motions/Touch6.mtn"},
       {"file": "motions/WakeUp.mtn"}
     ]
-  }
+  },
+  "textures":["textures/1.png"]
 }

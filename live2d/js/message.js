@@ -27,33 +27,33 @@ String.prototype.renderTip = function (context) {
 
 var re = /x/;
 console.log(re);
-re.toString = function() {
+re.toString = function () {
     showMessage('哈哈，你打开了控制台，是想要看看我的秘密吗？', 5000);
     return '';
 };
 
-$(document).on('copy', function (){
+$(document).on('copy', function () {
     showMessage('你都复制了些什么呀，转载要记得加上出处哦~~', 5000);
 });
 
-function initTips(){
+function initTips() {
     $.ajax({
         cache: true,
         url: `${messagePath}message.json`,
         dataType: "json",
-        success: function (result){
-            $.each(result.mouseover, function (index, tips){
-                $(tips.selector).mouseover(function (){
+        success: function (result) {
+            $.each(result.mouseover, function (index, tips) {
+                $(tips.selector).mouseover(function () {
                     var text = tips.text;
-                    if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
+                    if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
                     text = text.renderTip({text: $(this).text()});
                     showMessage(text, 3000);
                 });
             });
-            $.each(result.click, function (index, tips){
-                $(tips.selector).click(function (){
+            $.each(result.click, function (index, tips) {
+                $(tips.selector).click(function () {
                     var text = tips.text;
-                    if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
+                    if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
                     text = text.renderTip({text: $(this).text()});
                     showMessage(text, 3000);
                 });
@@ -61,23 +61,24 @@ function initTips(){
         }
     });
 }
+
 initTips();
 
-(function (){
+(function () {
     var text;
-    if(document.referrer !== ''){
+    if (document.referrer !== '') {
         var referrer = document.createElement('a');
         referrer.href = document.referrer;
         text = '嗨！来自 <span style="color:#0099cc;">' + referrer.hostname + '</span> 的朋友！';
         var domain = referrer.hostname.split('.')[1];
         if (domain == 'baidu') {
             text = '嗨！ 来自 百度搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-        }else if (domain == 'so') {
+        } else if (domain == 'so') {
             text = '嗨！ 来自 360搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-        }else if (domain == 'google') {
+        } else if (domain == 'google') {
             text = '嗨！ 来自 谷歌搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
         }
-    }else {
+    } else {
         if (window.location.href == `${homePath}`) { //主页URL判断，需要斜杠结尾
             var now = (new Date()).getHours();
             if (now > 23 || now <= 5) {
@@ -99,23 +100,23 @@ initTips();
             } else {
                 text = '嗨~ 快来逗我玩吧！';
             }
-        }else {
+        } else {
             text = '欢迎阅读<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
         }
     }
     showMessage(text, 12000);
 })();
 
-window.setInterval(showHitokoto,30000);
+window.setInterval(showHitokoto, 30000);
 
-function showHitokoto(){
-    $.getJSON('https://sslapi.hitokoto.cn/',function(result){
+function showHitokoto() {
+    $.getJSON('https://sslapi.hitokoto.cn/', function (result) {
         showMessage(result.hitokoto, 5000);
     });
 }
 
-function showMessage(text, timeout){
-    if(Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1)-1];
+function showMessage(text, timeout) {
+    if (Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1) - 1];
     //console.log('showMessage', text);
     $('.message').stop();
     $('.message').html(text).fadeTo(200, 1);
@@ -123,38 +124,35 @@ function showMessage(text, timeout){
     hideMessage(timeout);
 }
 
-function hideMessage(timeout){
-    $('.message').stop().css('opacity',1);
+function hideMessage(timeout) {
+    $('.message').stop().css('opacity', 1);
     if (timeout === null) timeout = 5000;
     $('.message').delay(timeout).fadeTo(200, 0);
 }
 
-function initLive2d(){
-    $('.hide-button').fadeOut(0).on('click', () => {
+function initLive2d() {
+    $('.hide-button').on('click', () => {
         $('#landlord').css('display', 'none')
     })
-	$('.switch-button').fadeOut(0).on('click', () => {
-        setupWife();
+    $('.switch-button').on('click', () => {
+        setupWaifu();
     })
     $('#landlord').hover(() => {
         $('.hide-button').fadeIn(600)
-		$('.switch-button').fadeIn(600)
+        $('.switch-button').fadeIn(600)
     }, () => {
         $('.hide-button').fadeOut(600)
-		$('.switch-button').fadeOut(600)
+        $('.switch-button').fadeOut(600)
     })
 }
 
-function setupWife(){
-	$.getJSON(`${live2dPath}model.json`, function (data){
-        var modelObj = JSON.parse(JSON.stringify(data, null, 2))
-		var textures = live2dPath + "textures/" + Math.floor(Math.random()*(max - 1 + 1) + 1) + ".png";
-		console.log(textures);
-		console.log(modelObj);
-        modelObj.textures = [textures];
-        loadlive2d('live2d', live2dPath, '', modelObj);
+function setupWaifu() {
+    $.getJSON(`${live2dPath}model.json`, function (data) {
+        var textures = "textures/" + Math.floor(Math.random() * (max - 1 + 1) + 1) + ".png";
+        data.textures = [textures];
+        loadlive2d('live2d', '/live2d/model/pio/model.json', '', data);
     })
 }
 
 initLive2d();
-setupWife();
+setupWaifu();
