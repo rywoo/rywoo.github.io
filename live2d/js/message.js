@@ -138,11 +138,11 @@ function initLive2d() {
         setupWaifu();
     })
     $('#landlord').hover(() => {
-        $('.hide-button').fadeIn(600)
-        $('.switch-button').fadeIn(600)
+        $('.hide-button').fadeIn(300)
+        $('.switch-button').fadeIn(300)
     }, () => {
-        $('.hide-button').fadeOut(600)
-        $('.switch-button').fadeOut(600)
+        $('.hide-button').fadeOut(300)
+        $('.switch-button').fadeOut(300)
     })
 }
 

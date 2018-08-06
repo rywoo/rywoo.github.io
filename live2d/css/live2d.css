@@ -20,7 +20,7 @@
     height: 70px;
     margin: -20px 20px;
     padding: 5px 10px;
-    top: -30px;
+    top: 10;
     left: -10px;
     text-align: center;
     border: 1px solid rgba(224, 186, 140, 0.62);
@@ -41,7 +41,7 @@
 
 .hide-button {
     position: absolute;
-    top: 50px;
+    top: 70px;
     right: 0;
     display: none;
     overflow: hidden;
@@ -57,7 +57,7 @@
 
 .switch-button {
     position: absolute;
-    top: 85px;
+    top: 100px;
     right: 0;
     display: none;
     overflow: hidden;
