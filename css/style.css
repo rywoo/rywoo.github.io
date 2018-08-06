@@ -204,8 +204,9 @@ a:hover, a:active {
 .sidebar .logo-title .title a {
   text-decoration: none;
   color: #464646;
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
+  font-family: HYshangweishoushuW;
 }
 .sidebar .social-links {
   list-style: none;

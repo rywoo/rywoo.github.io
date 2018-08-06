@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "HYshangweishoushuW";
+    src: url("../fonts/HYshangweishoushuW.eot"); /* IE9 */
+    src: url("../fonts/HYshangweishoushuW.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    
+    url("../fonts/HYshangweishoushuW.woff") format("woff"), /* chrome、firefox */
+    url("../fonts/HYshangweishoushuW.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    
+    url("../fonts/HYshangweishoushuW.svg#HYshangweishoushuW") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
